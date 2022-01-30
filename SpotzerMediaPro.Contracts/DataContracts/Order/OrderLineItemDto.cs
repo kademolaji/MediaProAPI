@@ -9,7 +9,6 @@ namespace SpotzerMediaPro.Contracts.DataContracts.Order
     public class OrderLineItemDto : BaseOrderLineItems
     {
         public OrderLineItemWebSiteDetailDto WebsiteDetails { get; set; }
-        //public WebsiteDetailOrderLineItemDto WebSiteDetails { get; set; }
         public OrderLineItemAdwordCampaignDto AdwordCampaign { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SpotzerMediaPro.Common.Helpers;
+using SpotzerMediaPro.Common.Interfaces;
 using SpotzerMediaPro.Contracts.DataContracts.Order;
 using SpotzerMediaPro.Contracts.ServiceContracts;
 using System;
@@ -15,25 +16,35 @@ namespace SpotzerMediaPro.WebAPI.Controllers
     public class OrderController : ControllerBase
     {
         private readonly ICreateOrderService _service;
-        public OrderController(ICreateOrderService service)
+        private readonly ILoggerService _loggerService;
+
+        public OrderController(ICreateOrderService service, ILoggerService loggerService)
         {
             _service = service;
+            _loggerService = loggerService;
         }
 
         [HttpPost]
         [Route("Create")]
-        [ProducesResponseType(201, Type = typeof(CreateResponse))]
+        [ProducesResponseType(200, Type = typeof(CreateResponse))]
         [ProducesResponseType(400, Type = typeof(CreateResponse))]
-        public async Task<IActionResult> Create([FromBody]OrderDto model)
+        public async Task<IActionResult> Create([FromBody] OrderDto model)
         {
             try
             {
-                var apiResponse = await _service.CreateOrder(model, 1);
-
+                _loggerService.Info($"[OrderController] Order with OrderId [{model.OrderId}] -> New create order request with model {model}");
+                var apiResponse = await _service.CreateOrder(model);
+                if (apiResponse.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    _loggerService.Info($"[OrderController] Order with OrderId [{model.OrderId}] -> returned badrequest {apiResponse.ResponseType}");
+                    return BadRequest(apiResponse.ResponseType);
+                }
+                _loggerService.Info($"[OrderController] Order with OrderId [{model.OrderId}] -> returned OK {apiResponse.ResponseType}");
                 return Ok(apiResponse.ResponseType);
             }
             catch (Exception ex)
             {
+                _loggerService.Error($"[OrderController] Order with OrderId [{model.OrderId}] -> Server Error {ex.Message}");
                 return BadRequest($"Server Error {ex.Message}");
             }
         }
