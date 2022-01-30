@@ -15,7 +15,7 @@ namespace SpotzerMediaPro.Domain.Helpers
         public DbSet<AuditTrail> AuditTrails { get; set; }
         public DbSet<Channel> Channels { get; set; }
         public DbSet<ChannelProduct> ChannelProducts { get; set; }
-        public DbSet<Order> Order { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public DbSet<OrderLineItem> OrderLineItems { get; set; }
         public DbSet<OrderLineItemAdwordCampaign> OrderLineItemAdwordCampaigns { get; set; }
         public DbSet<OrderLineItemWebSiteDetail> OrderLineItemWebSiteDetails { get; set; }
@@ -34,6 +34,11 @@ namespace SpotzerMediaPro.Domain.Helpers
                 .Property(m => m.ProductType)
                 .HasConversion(new EnumToStringConverter<ProductType>());
 
+            modelBuilder
+               .Entity<AuditTrail>()
+               .Property(m => m.ActionType)
+               .HasConversion(new EnumToStringConverter<ActionType>());
+            
             modelBuilder.ApplyConfiguration(new ChannelConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new ChannelProductConfiguration());

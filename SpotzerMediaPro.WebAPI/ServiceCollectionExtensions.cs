@@ -1,5 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using SpotzerMediaPro.Contracts.ServiceContracts;
 using SpotzerMediaPro.Domain.Helpers;
+using SpotzerMediaPro.Services;
+using SpotzerMediaPro.Services.Shared;
 using SpotzerMediaPro.WebAPI.Helpers;
 
 namespace SpotzerMediaPro.WebAPI
@@ -8,12 +12,14 @@ namespace SpotzerMediaPro.WebAPI
     {
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
-           
+            // Configure singletons services
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // Configure DI for application services
-            //services.AddScoped<IUserService, UserService>();
-            //services.AddScoped<IPaymentService, PaymentService>();
-
+            services.AddScoped<ICreateOrderService, CreateOrderService>();
+            services.AddScoped<IAuditTrailService, AuditTrailService>();
+            services.AddScoped<IHttpAccessorService, HttpAccessorService>();
+            
            // Configure transcient services
             services.AddTransient<DataContext>();
             services.AddTransient<LoggingActionFilterAttribute>();

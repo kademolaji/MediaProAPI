@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpotzerMediaPro.Domain.Entities
+namespace SpotzerMediaPro.Contracts.DataContracts.Order
 {
-    public class OrderLineItemWebSiteDetail : BaseEntity<string>
+    public class OrderLineItemWebSiteDetailDto
     {
-        public string OrderLineItemId { get; set; }
         public string TemplateId { get; set; }
         public string WebsiteBusinessName { get; set; }
         public string WebsiteAddressLine1 { get; set; }

@@ -10,9 +10,8 @@ namespace SpotzerMediaPro.Domain.Entities
     public class Channel
     {
         [Key]
-        public Guid Id { get; set; }
-        public Guid ApiKey { get; set; }
-        public Guid ApiCode { get; set; }
+        public string Id { get; set; }
+        public string ApiKey { get; set; }
         public string Name { get; set; }
         public bool IsActive { get; set; }
     }
