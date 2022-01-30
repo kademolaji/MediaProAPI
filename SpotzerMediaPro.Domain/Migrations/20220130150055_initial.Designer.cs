@@ -9,7 +9,7 @@ using SpotzerMediaPro.Domain.Helpers;
 namespace SpotzerMediaPro.Domain.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220130121024_initial")]
+    [Migration("20220130150055_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("ChannelId")
+                    b.Property<string>("ChannelId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTimeOffset>("CreatedOn")
@@ -67,14 +67,10 @@ namespace SpotzerMediaPro.Domain.Migrations
 
             modelBuilder.Entity("SpotzerMediaPro.Domain.Entities.Channel", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("ApiCode")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("ApiKey")
+                    b.Property<string>("ApiKey")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsActive")
@@ -92,33 +88,29 @@ namespace SpotzerMediaPro.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7f107726-562e-4b6e-9ebe-722d2b0959de"),
-                            ApiCode = new Guid("4ee50142-0e46-400b-b665-32767b1f6c56"),
-                            ApiKey = new Guid("bec30ac8-260f-499a-b421-f1813b687f29"),
+                            Id = "7f107726-562e-4b6e-9ebe-722d2b0959de",
+                            ApiKey = "bec30ac8-260f-499a-b421-f1813b687f29",
                             IsActive = true,
                             Name = "Partner A"
                         },
                         new
                         {
-                            Id = new Guid("3be6a48b-47d4-4cdd-89d5-c02419dd73a9"),
-                            ApiCode = new Guid("ed36abff-aa46-46dd-a20f-c3566df41289"),
-                            ApiKey = new Guid("aaac4232-b56d-4add-b508-17b15c39fefc"),
+                            Id = "3be6a48b-47d4-4cdd-89d5-c02419dd73a9",
+                            ApiKey = "aaac4232-b56d-4add-b508-17b15c39fefc",
                             IsActive = true,
                             Name = "Partner B"
                         },
                         new
                         {
-                            Id = new Guid("8bc3f28c-e64b-4546-9083-b0dad58d1b40"),
-                            ApiCode = new Guid("6899ffa8-d0da-4e22-87c5-534ad1e468ee"),
-                            ApiKey = new Guid("2f60912a-333d-4e77-aa58-0d3693d1335b"),
+                            Id = "8bc3f28c-e64b-4546-9083-b0dad58d1b40",
+                            ApiKey = "2f60912a-333d-4e77-aa58-0d3693d1335b",
                             IsActive = true,
                             Name = "Partner C"
                         },
                         new
                         {
-                            Id = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991890"),
-                            ApiCode = new Guid("c9d4c053-49b6-410c-bc78-2d54a9977777"),
-                            ApiKey = new Guid("c9d4c053-49b6-410c-bc78-2d54a9966666"),
+                            Id = "c9d4c053-49b6-410c-bc78-2d54a9991890",
+                            ApiKey = "c9d4c053-49b6-410c-bc78-2d54a9966666",
                             IsActive = true,
                             Name = "Partner D"
                         });
@@ -130,7 +122,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("ChannelId")
+                    b.Property<string>("ChannelId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTimeOffset>("CreatedOn")
@@ -142,7 +134,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("ProductId")
+                    b.Property<string>("ProductId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -153,66 +145,65 @@ namespace SpotzerMediaPro.Domain.Migrations
                         new
                         {
                             Id = 1L,
-                            ChannelId = new Guid("7f107726-562e-4b6e-9ebe-722d2b0959de"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 13, 10, 24, 122, DateTimeKind.Unspecified).AddTicks(8405), new TimeSpan(0, 1, 0, 0, 0)),
+                            ChannelId = "7f107726-562e-4b6e-9ebe-722d2b0959de",
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(5675), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
-                            ProductId = new Guid("62d85b57-db26-4742-a5ba-fb695c8cc9a2")
+                            ProductId = "62d85b57-db26-4742-a5ba-fb695c8cc9a2"
                         },
                         new
                         {
                             Id = 2L,
-                            ChannelId = new Guid("3be6a48b-47d4-4cdd-89d5-c02419dd73a9"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 13, 10, 24, 123, DateTimeKind.Unspecified).AddTicks(281), new TimeSpan(0, 1, 0, 0, 0)),
+                            ChannelId = "3be6a48b-47d4-4cdd-89d5-c02419dd73a9",
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7728), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
-                            ProductId = new Guid("62d85b57-db26-4742-a5ba-fb695c8cc9a2")
+                            ProductId = "62d85b57-db26-4742-a5ba-fb695c8cc9a2"
                         },
                         new
                         {
                             Id = 3L,
-                            ChannelId = new Guid("3be6a48b-47d4-4cdd-89d5-c02419dd73a9"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 13, 10, 24, 123, DateTimeKind.Unspecified).AddTicks(295), new TimeSpan(0, 1, 0, 0, 0)),
+                            ChannelId = "3be6a48b-47d4-4cdd-89d5-c02419dd73a9",
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7732), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
-                            ProductId = new Guid("909b9bcc-a9a2-4ed1-b130-3e9bba11ab77")
+                            ProductId = "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77"
                         },
                         new
                         {
                             Id = 4L,
-                            ChannelId = new Guid("8bc3f28c-e64b-4546-9083-b0dad58d1b40"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 13, 10, 24, 123, DateTimeKind.Unspecified).AddTicks(301), new TimeSpan(0, 1, 0, 0, 0)),
+                            ChannelId = "8bc3f28c-e64b-4546-9083-b0dad58d1b40",
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7735), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
-                            ProductId = new Guid("62d85b57-db26-4742-a5ba-fb695c8cc9a2")
+                            ProductId = "62d85b57-db26-4742-a5ba-fb695c8cc9a2"
                         },
                         new
                         {
                             Id = 5L,
-                            ChannelId = new Guid("8bc3f28c-e64b-4546-9083-b0dad58d1b40"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 13, 10, 24, 123, DateTimeKind.Unspecified).AddTicks(307), new TimeSpan(0, 1, 0, 0, 0)),
+                            ChannelId = "8bc3f28c-e64b-4546-9083-b0dad58d1b40",
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7738), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
-                            ProductId = new Guid("909b9bcc-a9a2-4ed1-b130-3e9bba11ab77")
+                            ProductId = "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77"
                         },
                         new
                         {
                             Id = 6L,
-                            ChannelId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991890"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 13, 10, 24, 123, DateTimeKind.Unspecified).AddTicks(312), new TimeSpan(0, 1, 0, 0, 0)),
+                            ChannelId = "c9d4c053-49b6-410c-bc78-2d54a9991890",
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7741), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
-                            ProductId = new Guid("909b9bcc-a9a2-4ed1-b130-3e9bba11ab77")
+                            ProductId = "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77"
                         });
                 });
 
             modelBuilder.Entity("SpotzerMediaPro.Domain.Entities.Order", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("ChannelId")
+                    b.Property<string>("ChannelId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CompanyID")
@@ -238,19 +229,18 @@ namespace SpotzerMediaPro.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("SpotzerMediaPro.Domain.Entities.OrderLineItem", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Category")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("ChannelId")
+                    b.Property<string>("ChannelId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTimeOffset>("CreatedOn")
@@ -262,7 +252,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("OrderId")
+                    b.Property<string>("OrderId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProductID")
@@ -280,8 +270,7 @@ namespace SpotzerMediaPro.Domain.Migrations
 
             modelBuilder.Entity("SpotzerMediaPro.Domain.Entities.OrderLineItemAdwordCampaign", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CampaignAddressLine1")
@@ -296,7 +285,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                     b.Property<string>("CampaignRadius")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("ChannelId")
+                    b.Property<string>("ChannelId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTimeOffset>("CreatedOn")
@@ -314,7 +303,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                     b.Property<string>("Offer")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("OrderLineItemId")
+                    b.Property<string>("OrderLineItemId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SMSPhoneNumber")
@@ -336,11 +325,10 @@ namespace SpotzerMediaPro.Domain.Migrations
 
             modelBuilder.Entity("SpotzerMediaPro.Domain.Entities.OrderLineItemWebSiteDetail", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("ChannelId")
+                    b.Property<string>("ChannelId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTimeOffset>("CreatedOn")
@@ -349,7 +337,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("OrderLineItemId")
+                    b.Property<string>("OrderLineItemId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TemplateId")
@@ -389,8 +377,7 @@ namespace SpotzerMediaPro.Domain.Migrations
 
             modelBuilder.Entity("SpotzerMediaPro.Domain.Entities.Product", b =>
                 {
-                    b.Property<Guid>("ProductId")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("ProductId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -418,7 +405,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = new Guid("62d85b57-db26-4742-a5ba-fb695c8cc9a2"),
+                            ProductId = "62d85b57-db26-4742-a5ba-fb695c8cc9a2",
                             Description = "Website Product",
                             DisplayName = "Website",
                             IsActive = true,
@@ -427,7 +414,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                         },
                         new
                         {
-                            ProductId = new Guid("909b9bcc-a9a2-4ed1-b130-3e9bba11ab77"),
+                            ProductId = "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77",
                             Description = "Paid Search Campaigns Product",
                             DisplayName = "Paid Search Campaigns",
                             IsActive = true,

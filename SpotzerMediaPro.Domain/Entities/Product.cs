@@ -10,7 +10,7 @@ namespace SpotzerMediaPro.Domain.Entities
     public class Product
     {
         [Key]
-        public Guid ProductId { get; set; }
+        public string ProductId { get; set; }
         public string ProductName { get; set; }
         public string DisplayName { get; set; }
         public string Description { get; set; }

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpotzerMediaPro.Domain.Entities
+namespace SpotzerMediaPro.Contracts.DataContracts.Order
 {
-    public class OrderLineItemAdwordCampaign: BaseEntity<string>
+    public class OrderLineItemAdwordCampaignDto
     {
-        public string OrderLineItemId { get; set; }
         public string CampaignName { get; set; }
         public string CampaignAddressLine1 { get; set; }
         public string CampaignPostCode { get; set; }

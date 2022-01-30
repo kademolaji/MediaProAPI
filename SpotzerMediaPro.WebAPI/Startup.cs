@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using SpotzerMediaPro.Domain.Helpers;
+using SpotzerMediaPro.WebAPI.Filters;
+using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,9 +41,18 @@ namespace SpotzerMediaPro.WebAPI
          
 
             services.AddControllers();
+            services.AddSwaggerExamplesFromAssemblyOf<SwaggerMultipleExampleFilter>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SpotzerMediaPro.WebAPI", Version = "v1" });
+                c.ExampleFilters();
+                c.SwaggerDoc("v1",
+                     new OpenApiInfo
+                     {
+                         Title = "SpotzerMediaPro API",
+                         Version = "v1",
+                         Description = "A multitenant order platform",
+
+                     });
             });
         }
 

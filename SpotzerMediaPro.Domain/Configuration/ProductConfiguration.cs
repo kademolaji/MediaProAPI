@@ -17,7 +17,7 @@ namespace SpotzerMediaPro.Domain.Configuration
             (
               new Product
               {
-                  ProductId = new Guid("62d85b57-db26-4742-a5ba-fb695c8cc9a2"),
+                  ProductId = "62d85b57-db26-4742-a5ba-fb695c8cc9a2",
                   ProductName = "Website",
                   DisplayName = "Website",
                   Description = "Website Product",
@@ -26,7 +26,7 @@ namespace SpotzerMediaPro.Domain.Configuration
               },
                new Product
                {
-                   ProductId = new Guid("909b9bcc-a9a2-4ed1-b130-3e9bba11ab77"),
+                   ProductId = "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77",
                    ProductName = "Paid Search Campaigns",
                    DisplayName = "Paid Search Campaigns",
                    Description = "Paid Search Campaigns Product",

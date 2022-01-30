@@ -14,9 +14,8 @@ namespace SpotzerMediaPro.Domain.Entities
             IsDeleted = false;
             CreatedOn = DateTimeOffset.Now;
         }
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public TPrimaryKey Id { get; set; }
-        public Guid ChannelId { get; set; }
+        public string ChannelId { get; set; }
         public DateTimeOffset CreatedOn { get; set; } = DateTimeOffset.Now;
         public bool IsDeleted { get; set; }
     }
