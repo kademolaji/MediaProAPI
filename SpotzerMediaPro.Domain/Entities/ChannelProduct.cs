@@ -8,7 +8,7 @@ namespace SpotzerMediaPro.Domain.Entities
 {
     public class ChannelProduct: BaseEntity<long>
     {
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
         public bool IsActive { get; set; }
     }
 }

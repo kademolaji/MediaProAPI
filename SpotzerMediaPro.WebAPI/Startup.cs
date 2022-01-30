@@ -2,11 +2,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using SpotzerMediaPro.Domain.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +29,14 @@ namespace SpotzerMediaPro.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddDbContext<ApplicationDBContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContextPool<DataContext>(options =>
+              options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"), b =>
+              b.MigrationsAssembly("SpotzerMediaPro.Domain")));
+
+            // Configure app services
+            services.RegisterServices();
+
+         
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -36,8 +46,10 @@ namespace SpotzerMediaPro.WebAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, ILogger<Startup> logger)
         {
+            loggerFactory.AddSerilog();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
