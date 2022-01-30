@@ -10,6 +10,6 @@ namespace SpotzerMediaPro.Contracts.ServiceContracts
 {
     public interface ICreateOrderService
     {
-        Task<ApiResponse<CreateResponse>> CreateOrder(OrderDto model, long userId);
+        Task<ApiResponse<CreateResponse>> CreateOrder(OrderDto model);
     }
 }
