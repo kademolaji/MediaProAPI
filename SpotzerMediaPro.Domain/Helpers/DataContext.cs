@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using SpotzerMediaPro.Domain.Configuration;
 using SpotzerMediaPro.Domain.Entities;
 
 namespace SpotzerMediaPro.Domain.Helpers
@@ -11,10 +12,14 @@ namespace SpotzerMediaPro.Domain.Helpers
             // Noop
         }
 
-        public DbSet<Product> Products { get; set; }
-
+        public DbSet<AuditTrail> AuditTrails { get; set; }
         public DbSet<Channel> Channels { get; set; }
-
+        public DbSet<ChannelProduct> ChannelProducts { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderLineItem> OrderLineItems { get; set; }
+        public DbSet<OrderLineItemAdwordCampaign> OrderLineItemAdwordCampaigns { get; set; }
+        public DbSet<OrderLineItemWebSiteDetail> OrderLineItemWebSiteDetails { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,6 +34,13 @@ namespace SpotzerMediaPro.Domain.Helpers
                 .Property(m => m.ProductType)
                 .HasConversion(new EnumToStringConverter<ProductType>());
 
+            modelBuilder.ApplyConfiguration(new ChannelConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new ChannelProductConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
+
     }
 }
+
