@@ -9,8 +9,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using NLog;
+using SpotzerMediaPro.Common.Exceptions;
 using SpotzerMediaPro.Domain.Helpers;
 using SpotzerMediaPro.WebAPI.Filters;
+using SpotzerMediaPro.WebAPI.MiddleWare;
 using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Collections.Generic;
@@ -55,6 +57,29 @@ namespace SpotzerMediaPro.WebAPI
                          Description = "A multitenant order platform",
 
                      });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Please enter token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "bearer"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+                            }
+                        },
+                        new string[]{}
+                    }
+                });
             });
         }
 
@@ -74,11 +99,13 @@ namespace SpotzerMediaPro.WebAPI
             app.UseRouting();
 
             app.UseAuthorization();
-
+            // Global Exception middleware
+            app.UseMiddleware<SpotzerMediaProExceptionMiddleware>();
+          
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
+            }); 
         }
     }
 }

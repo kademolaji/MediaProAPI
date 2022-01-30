@@ -6,7 +6,6 @@ using SpotzerMediaPro.Contracts.ServiceContracts;
 using SpotzerMediaPro.Domain.Helpers;
 using SpotzerMediaPro.Services;
 using SpotzerMediaPro.Services.Shared;
-using SpotzerMediaPro.WebAPI.Helpers;
 
 namespace SpotzerMediaPro.WebAPI
 {
@@ -22,10 +21,10 @@ namespace SpotzerMediaPro.WebAPI
             services.AddScoped<ICreateOrderService, CreateOrderService>();
             services.AddScoped<IAuditTrailService, AuditTrailService>();
             services.AddScoped<IHttpAccessorService, HttpAccessorService>();
+            services.AddScoped<IBasicAuthService, BasicAuthService>();
             
            // Configure transcient services
             services.AddTransient<DataContext>();
-            services.AddTransient<LoggingActionFilterAttribute>();
 
             return services;
         }

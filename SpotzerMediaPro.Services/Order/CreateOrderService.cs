@@ -33,12 +33,12 @@ namespace SpotzerMediaPro.Services
                 if (partnerExist == null)
                 {
                     _loggerService.Info($"[CreateOrderService] Order with OrderId [{model.OrderId}] -> getting partner with Partner Id -> [{model.Partner}] does not exist");
-                    return new ApiResponse<CreateResponse>() { StatusCode = System.Net.HttpStatusCode.BadRequest, ResponseType = new CreateResponse() { Status = false, Id = "", Message = "Partner does not exist" }, IsSuccess = false };
+                    return new ApiResponse<CreateResponse>() { StatusCode = System.Net.HttpStatusCode.BadRequest, ResponseType = new CreateResponse() { Status = false, Id = "", Message = $"Partner with [{model.Partner}] does not exist" }, IsSuccess = false };
                 }
                 if (!partnerExist.IsActive)
                 {
                     _loggerService.Info($"[CreateOrderService]  Order with OrderId [{model.OrderId}] -> [{partnerExist.Name}] is not active");
-                    return new ApiResponse<CreateResponse>() { StatusCode = System.Net.HttpStatusCode.BadRequest, ResponseType = new CreateResponse() { Status = false, Id = "", Message = "Partner is not active" }, IsSuccess = false };
+                    return new ApiResponse<CreateResponse>() { StatusCode = System.Net.HttpStatusCode.BadRequest, ResponseType = new CreateResponse() { Status = false, Id = "", Message = $"Partner with [{model.Partner}] is not active" }, IsSuccess = false };
                 }
                 var orderExist = await _context.Orders.FirstOrDefaultAsync(x => x.Id == model.OrderId);
                 if (orderExist != null)
@@ -77,12 +77,12 @@ namespace SpotzerMediaPro.Services
                     if (channelProduct == null)
                     {
                         _loggerService.Info($"[CreateOrderService] Order with OrderId [{model.OrderId}] -> Product  [{productExist.ProductName}] does not exist for partner [{partnerExist.Name}]");
-                        return new ApiResponse<CreateResponse>() { StatusCode = System.Net.HttpStatusCode.BadRequest, ResponseType = new CreateResponse() { Status = false, Id = "", Message = $"Product  [{productExist.ProductName}] does not exist for partner [{partnerExist.Name}]" }, IsSuccess = false };
+                        return new ApiResponse<CreateResponse>() { StatusCode = System.Net.HttpStatusCode.BadRequest, ResponseType = new CreateResponse() { Status = false, Id = "", Message = $"Product [{productExist.ProductName}] does not exist for partner [{partnerExist.Name}]" }, IsSuccess = false };
                     }
                     if (!channelProduct.IsActive)
                     {
                         _loggerService.Info($"[CreateOrderService] Order with OrderId [{model.OrderId}] -> Product  [{productExist.ProductName}] is not active for partner [{partnerExist.Name}]");
-                        return new ApiResponse<CreateResponse>() { StatusCode = System.Net.HttpStatusCode.BadRequest, ResponseType = new CreateResponse() { Status = false, Id = "", Message = $"Product  [{productExist.ProductName}] is not active for partner [{partnerExist.Name}]" }, IsSuccess = false };
+                        return new ApiResponse<CreateResponse>() { StatusCode = System.Net.HttpStatusCode.BadRequest, ResponseType = new CreateResponse() { Status = false, Id = "", Message = $"Product [{productExist.ProductName}] is not active for partner [{partnerExist.Name}]" }, IsSuccess = false };
                     }
                 }
                
@@ -191,10 +191,12 @@ namespace SpotzerMediaPro.Services
                         {
                             _loggerService.Info($"[CreateOrderService] Order with OrderId [{model.OrderId}] -> Order was saved successfully");
 
-                            var details = $"Created new Order with OrderId => {model.OrderId}:OrderItemCount = {model.LineItems.Count}";
-                            _auditTrail.SaveAuditTrail(details, "Create Order", ActionType.Created, model.SubmittedBy);
-                            
                             trans.Commit();
+
+                            var details = $"Created new Order with OrderId => {model.OrderId}:OrderItemCount = {model.LineItems.Count}";
+                           _auditTrail.SaveAuditTrail(details, "Create Order", ActionType.Created, model.SubmittedBy);
+                            
+                          
                         }
                     }
                     catch (Exception ex)
