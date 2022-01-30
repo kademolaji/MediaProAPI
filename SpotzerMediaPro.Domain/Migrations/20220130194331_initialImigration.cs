@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SpotzerMediaPro.Domain.Migrations
 {
-    public partial class initial : Migration
+    public partial class initialImigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                     IPAddress = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
                     HostAddress = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
                     Endpoint = table.Column<string>(type: "TEXT", maxLength: 100, nullable: true),
-                    ActionType = table.Column<int>(type: "INTEGER", maxLength: 100, nullable: false),
+                    ActionType = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     ChannelId = table.Column<string>(type: "TEXT", nullable: true),
                     CreatedOn = table.Column<DateTimeOffset>(type: "TEXT", nullable: false),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
@@ -174,52 +174,52 @@ namespace SpotzerMediaPro.Domain.Migrations
             migrationBuilder.InsertData(
                 table: "ChannelProducts",
                 columns: new[] { "Id", "ChannelId", "CreatedOn", "IsActive", "IsDeleted", "ProductId" },
-                values: new object[] { 1L, "7f107726-562e-4b6e-9ebe-722d2b0959de", new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(5675), new TimeSpan(0, 1, 0, 0, 0)), true, false, "62d85b57-db26-4742-a5ba-fb695c8cc9a2" });
+                values: new object[] { 1L, "7f107726-562e-4b6e-9ebe-722d2b0959de", new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(2519), new TimeSpan(0, 1, 0, 0, 0)), true, false, "62d85b57-db26-4742-a5ba-fb695c8cc9a2" });
 
             migrationBuilder.InsertData(
                 table: "ChannelProducts",
                 columns: new[] { "Id", "ChannelId", "CreatedOn", "IsActive", "IsDeleted", "ProductId" },
-                values: new object[] { 2L, "3be6a48b-47d4-4cdd-89d5-c02419dd73a9", new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7728), new TimeSpan(0, 1, 0, 0, 0)), true, false, "62d85b57-db26-4742-a5ba-fb695c8cc9a2" });
+                values: new object[] { 2L, "3be6a48b-47d4-4cdd-89d5-c02419dd73a9", new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(4313), new TimeSpan(0, 1, 0, 0, 0)), true, false, "62d85b57-db26-4742-a5ba-fb695c8cc9a2" });
 
             migrationBuilder.InsertData(
                 table: "ChannelProducts",
                 columns: new[] { "Id", "ChannelId", "CreatedOn", "IsActive", "IsDeleted", "ProductId" },
-                values: new object[] { 3L, "3be6a48b-47d4-4cdd-89d5-c02419dd73a9", new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7732), new TimeSpan(0, 1, 0, 0, 0)), true, false, "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77" });
+                values: new object[] { 3L, "3be6a48b-47d4-4cdd-89d5-c02419dd73a9", new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(4318), new TimeSpan(0, 1, 0, 0, 0)), true, false, "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77" });
 
             migrationBuilder.InsertData(
                 table: "ChannelProducts",
                 columns: new[] { "Id", "ChannelId", "CreatedOn", "IsActive", "IsDeleted", "ProductId" },
-                values: new object[] { 4L, "8bc3f28c-e64b-4546-9083-b0dad58d1b40", new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7735), new TimeSpan(0, 1, 0, 0, 0)), true, false, "62d85b57-db26-4742-a5ba-fb695c8cc9a2" });
+                values: new object[] { 4L, "8bc3f28c-e64b-4546-9083-b0dad58d1b40", new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(4321), new TimeSpan(0, 1, 0, 0, 0)), true, false, "62d85b57-db26-4742-a5ba-fb695c8cc9a2" });
 
             migrationBuilder.InsertData(
                 table: "ChannelProducts",
                 columns: new[] { "Id", "ChannelId", "CreatedOn", "IsActive", "IsDeleted", "ProductId" },
-                values: new object[] { 5L, "8bc3f28c-e64b-4546-9083-b0dad58d1b40", new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7738), new TimeSpan(0, 1, 0, 0, 0)), true, false, "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77" });
+                values: new object[] { 5L, "8bc3f28c-e64b-4546-9083-b0dad58d1b40", new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(4324), new TimeSpan(0, 1, 0, 0, 0)), true, false, "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77" });
 
             migrationBuilder.InsertData(
                 table: "ChannelProducts",
                 columns: new[] { "Id", "ChannelId", "CreatedOn", "IsActive", "IsDeleted", "ProductId" },
-                values: new object[] { 6L, "c9d4c053-49b6-410c-bc78-2d54a9991890", new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7741), new TimeSpan(0, 1, 0, 0, 0)), true, false, "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77" });
+                values: new object[] { 6L, "c9d4c053-49b6-410c-bc78-2d54a9991890", new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(4327), new TimeSpan(0, 1, 0, 0, 0)), true, false, "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77" });
 
             migrationBuilder.InsertData(
                 table: "Channels",
                 columns: new[] { "Id", "ApiKey", "IsActive", "Name" },
-                values: new object[] { "7f107726-562e-4b6e-9ebe-722d2b0959de", "bec30ac8-260f-499a-b421-f1813b687f29", true, "Partner A" });
+                values: new object[] { "7f107726-562e-4b6e-9ebe-722d2b0959de", "spotzer_test_51JUu1MGNU5r3gGaDKd4aZKlcgy0IWF1px7EjZQlnNwfC9IRMy2uPQj3c0ZLhCLhyoHdhSFUXgewCXCN2nJeRWpro00W1qWBesM", true, "Partner A" });
 
             migrationBuilder.InsertData(
                 table: "Channels",
                 columns: new[] { "Id", "ApiKey", "IsActive", "Name" },
-                values: new object[] { "3be6a48b-47d4-4cdd-89d5-c02419dd73a9", "aaac4232-b56d-4add-b508-17b15c39fefc", true, "Partner B" });
+                values: new object[] { "3be6a48b-47d4-4cdd-89d5-c02419dd73a9", "spotzer_test_51JUu1MGNU5r3gGaDKd4aZKlcgy0IWF1px7EjZQlnNwfC9IRMy2uPQj3c0ZLhCLhyoHdhSFUXgewCXCN2nJeRWpro00W1qLePvT", true, "Partner B" });
 
             migrationBuilder.InsertData(
                 table: "Channels",
                 columns: new[] { "Id", "ApiKey", "IsActive", "Name" },
-                values: new object[] { "8bc3f28c-e64b-4546-9083-b0dad58d1b40", "2f60912a-333d-4e77-aa58-0d3693d1335b", true, "Partner C" });
+                values: new object[] { "8bc3f28c-e64b-4546-9083-b0dad58d1b40", "spotzer_test_51JUu1MGNU5r3gGaDKd4aZKlcgy0IWF1px7EjZQlnNwfC9IRMy2uPQj3c0ZLhCLhyoHdhSFUXgewCXCN2nJeRWpro00W1qAeWVe", true, "Partner C" });
 
             migrationBuilder.InsertData(
                 table: "Channels",
                 columns: new[] { "Id", "ApiKey", "IsActive", "Name" },
-                values: new object[] { "c9d4c053-49b6-410c-bc78-2d54a9991890", "c9d4c053-49b6-410c-bc78-2d54a9966666", true, "Partner D" });
+                values: new object[] { "c9d4c053-49b6-410c-bc78-2d54a9991890", "spotzer_test_51JUu1MGNU5r3gGaDKd4aZKlcgy0IWF1px7EjZQlnNwfC9IRMy2uPQj3c0ZLhCLhyoHdhSFUXgewCXCN2nJeRWpro00W1qreGeFe", true, "Partner D" });
 
             migrationBuilder.InsertData(
                 table: "Products",

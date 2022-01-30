@@ -9,8 +9,8 @@ using SpotzerMediaPro.Domain.Helpers;
 namespace SpotzerMediaPro.Domain.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220130150055_initial")]
-    partial class initial
+    [Migration("20220130194331_initialImigration")]
+    partial class initialImigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,9 +31,10 @@ namespace SpotzerMediaPro.Domain.Migrations
                     b.Property<DateTime?>("ActionDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ActionType")
+                    b.Property<string>("ActionType")
+                        .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ChannelId")
                         .HasColumnType("TEXT");
@@ -89,28 +90,28 @@ namespace SpotzerMediaPro.Domain.Migrations
                         new
                         {
                             Id = "7f107726-562e-4b6e-9ebe-722d2b0959de",
-                            ApiKey = "bec30ac8-260f-499a-b421-f1813b687f29",
+                            ApiKey = "spotzer_test_51JUu1MGNU5r3gGaDKd4aZKlcgy0IWF1px7EjZQlnNwfC9IRMy2uPQj3c0ZLhCLhyoHdhSFUXgewCXCN2nJeRWpro00W1qWBesM",
                             IsActive = true,
                             Name = "Partner A"
                         },
                         new
                         {
                             Id = "3be6a48b-47d4-4cdd-89d5-c02419dd73a9",
-                            ApiKey = "aaac4232-b56d-4add-b508-17b15c39fefc",
+                            ApiKey = "spotzer_test_51JUu1MGNU5r3gGaDKd4aZKlcgy0IWF1px7EjZQlnNwfC9IRMy2uPQj3c0ZLhCLhyoHdhSFUXgewCXCN2nJeRWpro00W1qLePvT",
                             IsActive = true,
                             Name = "Partner B"
                         },
                         new
                         {
                             Id = "8bc3f28c-e64b-4546-9083-b0dad58d1b40",
-                            ApiKey = "2f60912a-333d-4e77-aa58-0d3693d1335b",
+                            ApiKey = "spotzer_test_51JUu1MGNU5r3gGaDKd4aZKlcgy0IWF1px7EjZQlnNwfC9IRMy2uPQj3c0ZLhCLhyoHdhSFUXgewCXCN2nJeRWpro00W1qAeWVe",
                             IsActive = true,
                             Name = "Partner C"
                         },
                         new
                         {
                             Id = "c9d4c053-49b6-410c-bc78-2d54a9991890",
-                            ApiKey = "c9d4c053-49b6-410c-bc78-2d54a9966666",
+                            ApiKey = "spotzer_test_51JUu1MGNU5r3gGaDKd4aZKlcgy0IWF1px7EjZQlnNwfC9IRMy2uPQj3c0ZLhCLhyoHdhSFUXgewCXCN2nJeRWpro00W1qreGeFe",
                             IsActive = true,
                             Name = "Partner D"
                         });
@@ -146,7 +147,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                         {
                             Id = 1L,
                             ChannelId = "7f107726-562e-4b6e-9ebe-722d2b0959de",
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(5675), new TimeSpan(0, 1, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(2519), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = "62d85b57-db26-4742-a5ba-fb695c8cc9a2"
@@ -155,7 +156,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                         {
                             Id = 2L,
                             ChannelId = "3be6a48b-47d4-4cdd-89d5-c02419dd73a9",
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7728), new TimeSpan(0, 1, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(4313), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = "62d85b57-db26-4742-a5ba-fb695c8cc9a2"
@@ -164,7 +165,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                         {
                             Id = 3L,
                             ChannelId = "3be6a48b-47d4-4cdd-89d5-c02419dd73a9",
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7732), new TimeSpan(0, 1, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(4318), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77"
@@ -173,7 +174,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                         {
                             Id = 4L,
                             ChannelId = "8bc3f28c-e64b-4546-9083-b0dad58d1b40",
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7735), new TimeSpan(0, 1, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(4321), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = "62d85b57-db26-4742-a5ba-fb695c8cc9a2"
@@ -182,7 +183,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                         {
                             Id = 5L,
                             ChannelId = "8bc3f28c-e64b-4546-9083-b0dad58d1b40",
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7738), new TimeSpan(0, 1, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(4324), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77"
@@ -191,7 +192,7 @@ namespace SpotzerMediaPro.Domain.Migrations
                         {
                             Id = 6L,
                             ChannelId = "c9d4c053-49b6-410c-bc78-2d54a9991890",
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 16, 0, 54, 777, DateTimeKind.Unspecified).AddTicks(7741), new TimeSpan(0, 1, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2022, 1, 30, 20, 43, 30, 885, DateTimeKind.Unspecified).AddTicks(4327), new TimeSpan(0, 1, 0, 0, 0)),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = "909b9bcc-a9a2-4ed1-b130-3e9bba11ab77"

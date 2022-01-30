@@ -4,6 +4,7 @@ using SpotzerMediaPro.Common.Helpers;
 using SpotzerMediaPro.Common.Interfaces;
 using SpotzerMediaPro.Contracts.DataContracts.Order;
 using SpotzerMediaPro.Contracts.ServiceContracts;
+using SpotzerMediaPro.WebAPI.MiddleWare;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 namespace SpotzerMediaPro.WebAPI.Controllers
 {
     [Route("api/[controller]")]
+    [ApiKey]
     [ApiController]
     public class OrderController : ControllerBase
     {
