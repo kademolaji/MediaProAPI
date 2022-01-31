@@ -24,6 +24,16 @@ This project is structured in two folder on solution level. The first folder is 
   
 
  ```
+## Database
+SQlite was used for the database and the following table were included 
+`ChannelProducts`
+`Channels`
+`AuditTrails`
+`OrderLineItemAdwordCampaigns`
+`OrderLineItems`
+`Products`
+`OrderLineItemWebSiteDetails`
+`Orders`
  
 ## Logging
  
