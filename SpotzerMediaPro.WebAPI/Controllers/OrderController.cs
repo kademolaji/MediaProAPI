@@ -26,6 +26,11 @@ namespace SpotzerMediaPro.WebAPI.Controllers
             _loggerService = loggerService;
         }
 
+        /// <summary>
+        /// Create order for any partner and validate the products that can be created by a partner.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("Create")]
         [ProducesResponseType(200, Type = typeof(CreateResponse))]
