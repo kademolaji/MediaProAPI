@@ -32,6 +32,7 @@ NLog was used for logging operations. A generic LoggerService is created in `Spo
 ## Security
 
 Basic authentication was implemented that required the client the add Authorization header to the request. It works like bearer token, but in this case, `ApiKey` from the Channel table is checked against the key gotten from the header. If `ApiKey` is not added to the request, you get Status Code 400 and if `ApiKey` does not match, you get Status Code 401. The Attribute is added on each Controller that needed to be authorized
+Sample security token for test `spotzer_test_51JUu1MGNU5r3gGaDKd4aZKlcgy0IWF1px7EjZQlnNwfC9IRMy2uPQj3c0ZLhCLhyoHdhSFUXgewCXCN2nJeRWpro00W1qWBesM`
 
 ## Exception Handling
 A global exception handler middleware was written to handle all error and was used in the request pipeline.
